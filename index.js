@@ -8,7 +8,6 @@ app.post('/detect', (req, res) => {
     let pulse = null;
 
     try {
-        // Szukaj wzorca JSON impulsu wewnątrz wiadomości
         const regex = /{[^}]*"recipient_id"[^}]*}/g;
         const match = message.match(regex);
         
@@ -26,7 +25,6 @@ app.post('/detect', (req, res) => {
     res.json({ found, pulse });
 });
 
-// Endpoint GET do testowania serwera
 app.get('/', (req, res) => {
     res.send('PRTS Parser API is live!');
 });
